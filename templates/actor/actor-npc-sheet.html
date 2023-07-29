@@ -1,0 +1,384 @@
+<form class="{{cssClass}} {{actor.type}} flexcol" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img
+      class="profile-img"
+      src="{{actor.img}}"
+      data-edit="img"
+      title="{{actor.name}}"
+      height="100"
+      width="100"
+    />
+    <div class="header-fields">
+      <h1 class="charname">
+        <input
+          name="name"
+          type="text"
+          value="{{actor.name}}"
+          placeholder="Name"
+        />
+      </h1>
+      {{!-- The grid classes are defined in scss/global/_grid.scss. To use, use
+      both the "grid" and "grid-Ncol" class where "N" can be any number from 1
+      to 12 and will create that number of columns. --}}
+      <div class="resources grid grid-3col">
+        {{!-- "flex-group-center" is also defined in the _grid.scss file and it
+        will add a small amount of padding, a border, and will center all of its
+        child elements content and text. --}}
+        <div class="resource flex-group-center">
+          <label for="system.resources.hp.max" class="resource-label"><p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-heart"></i>  HP</p></label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="text"
+              name="system.resources.hp.value"
+              value="{{system.resources.hp.value}}"
+              data-dtype="Number"
+            />
+            <span> / </span>
+            <input
+              type="text"
+              name="system.resources.hp.max"
+              value="{{system.resources.hp.max}}"
+              data-dtype="Number"
+            />
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.resources.mp.value" class="resource-label"
+            ><p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-sparkles"></i>  MP</p></label
+          >
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="text"
+              name="system.resources.mp.value"
+              value="{{system.resources.mp.value}}"
+              data-dtype="Number"
+            />
+            <span> / </span>
+            <input
+              type="text"
+              name="system.resources.mp.max"
+              value="{{system.resources.mp.max}}"
+              data-dtype="Number"
+            />
+          </div>
+        </div>
+
+        <div class="resource flex-group-center">
+          <label for="system.level.value" class="resource-label"><p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-chart-simple"></i>  Level</p></label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="text"
+              name="system.level.value"
+              value="{{system.level.value}}"
+              data-dtype="Number"
+            />
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.derived.def.value" class="resource-label"
+            ><p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-shield"></i>  Def</p></label
+          >
+          <div class="resource-content flexrow flex-center flex-between">
+            <span>{{ system.derived.def.value }}</span>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.derived.def.value" class="resource-label"
+            ><p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-shield-halved"></i>  MDef</p></label
+          >
+          <div class="resource-content flexrow flex-center flex-between">
+            <span>{{ system.derived.mdef.value }}</span>
+          </div>
+        </div>
+        <div class="resource flex-group-center">
+          <label for="system.derived.def.value" class="resource-label"
+            ><p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-clock"></i>  Initiative</p></label
+          >
+          <div class="resource-content flexrow flex-center flex-between">
+            <span>{{ system.derived.init.value }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item" data-tab="attributes">Attributes</a>
+    <a class="item" data-tab="items">Items</a>
+    <a class="item" data-tab="spells">Spells</a>
+    <a class="item" data-tab="behavior">Behavior</a>
+    <a class="item" data-tab="effects">Effects</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Owned Features Tab --}}
+    <div class="tab features" data-group="primary" data-tab="attributes">
+      <section class="grid grid-3col">
+        <aside class="sidebar">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns. --}}
+          <div class="abilities flexcol">
+            {{#each system.attributes as |attribute key|}}
+            <div class="ability flexrow flex-group-center">
+              <label
+                for="system.attributes.{{key}}.base"
+                class="resource-label flexlarge align-left"
+                data-label="{{attribute.label}}"
+                ><p style="color: seagreen; font-weight: bold">{{attribute.label}}</p></label
+              >
+              <select
+                data-dtype="Number"
+                value="{{attribute.base}}"
+                name="system.attributes.{{key}}.base"
+              >
+                {{#select attribute.base}}
+                <option value="6">d6</option>
+                <option value="8">d8</option>
+                <option value="10">d10</option>
+                <option value="12">d12</option>
+                {{/select}}
+              </select>
+              <span class="ability-mod"><p style="color: seagreen; font-weight: bold">{{ attribute.current }}</p></span>
+            </div>
+            {{/each}}
+          </div>
+          <div class="grid grid-3col">
+            <!-- Physical -->
+            <div class="flex-group-center">
+         <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-sword"></i><br>  Physical</p></label>
+          <select
+          value="{{system.resistances.phys}}"
+          name="system.resistances.phys"
+             >
+            {{#select system.resistances.phys}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+          </select>
+        </div>
+  
+            <!-- Air -->
+            <div class="flex-group-center">        
+          <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-wind"></i><br>  Air</p></label>
+            <select
+            value="{{system.resistances.air}}"
+            name="system.resistances.air"
+            >
+            {{#select system.resistances.air}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+            </select>
+          </div>
+  
+            <!-- Bolt -->
+            <div class="flex-group-center">
+                <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-bolt"></i><br>  Bolt</p></label>
+            <select
+            value="{{system.resistances.bolt}}"
+            name="system.resistances.bolt"
+            >
+            {{#select system.resistances.bolt}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+            </select>
+          </div>
+  
+            <!-- Dark -->
+            <div class="flex-group-center">
+          <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-moon"></i><br>  Dark</p></label>
+          <select
+          value="{{system.resistances.dark}}"
+          name="system.resistances.dark"
+             >
+            {{#select system.resistances.dark}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+          </select>
+        </div>
+  
+            <!-- Earth -->
+            <div class="flex-group-center">
+          <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-hill-rockslide"></i><br>  Earth</p></label>
+            <select
+            value="{{system.resistances.earth}}"
+            name="system.resistances.earth"
+            >
+            {{#select system.resistances.earth}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+            </select>
+          </div>
+  
+            <!-- Poison -->
+            <div class="flex-group-center">
+                <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-fire"></i><br>  Fire</p></label>
+            <select
+            value="{{system.resistances.fire}}"
+            name="system.resistances.fire"
+            >
+            {{#select system.resistances.fire}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+            </select>
+          </div>
+  
+            <!-- Poison -->
+            <div class="flex-group-center">
+          <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-icicles"></i><br>  Ice</p></label>
+          <select
+          value="{{system.resistances.ice}}"
+          name="system.resistances.ice"
+             >
+            {{#select system.resistances.ice}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+          </select>
+        </div>
+  
+            <!-- Poison -->
+            <div class="flex-group-center">
+          <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-sun"></i><br>  Light</p></label>
+            <select
+            value="{{system.resistances.light}}"
+            name="system.resistances.light"
+            >
+            {{#select system.resistances.light}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+            </select>
+          </div>
+  
+            <!-- Poison -->
+          <div class="flex-group-center">
+                <label>
+          <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-skull-crossbones"></i><br>  Poison</p></label>
+            <select
+            value="{{system.resistances.poison}}"
+            name="system.resistances.poison"
+            >
+            {{#select system.resistances.poison}}
+            <option value="NA">-</option>
+            <option value="VU">VU</option>
+            <option value="RS">RS</option>
+            <option value="IM">IM</option>
+            <option value="AB">AB</option>
+            {{/select}}
+            </select>
+          </div>
+  
+  
+        </div>
+        </aside>
+		<section class="flex3" style="border: 4px double seagreen">
+		 <span>
+      {{editor system.description target="system.description" rollData=rollData
+      button=true owner=owner editable=editable}}
+		</span>
+		</section>
+        {{!-- For the main features list, span the right two columns --}}
+<section class="align-right" style="border: 4px double seagreen">
+  <div class="flex-group-center">
+    <label for="system.isChampion.value" class="resource-label">Champion Value</label>
+    <input type="text" name="system.isChampion.value" value="{{system.isChampion.value}}" data-dtype="Number">
+  </div>
+  <div class="resource flex-group-center">
+    <label for="system.resources.hp.bonus" class="resource-label">Bonus HP</label>
+    <input type="text" name="system.resources.hp.bonus" value="{{system.resources.hp.bonus}}" data-dtype="Number">
+  </div>
+  <div class="resource flex-group-center">
+    <label for="system.resources.mp.bonus" class="resource-label">Bonus MP</label>
+    <input type="text" name="system.resources.mp.bonus" value="{{system.resources.mp.bonus}}" data-dtype="Number">
+  </div>
+  <div class="resource flex-group-center">
+    <label for="system.derived.def.bonus" class="resource-label">Bonus Def</label>
+    <input type="text" name="system.derived.def.bonus" value="{{system.derived.def.bonus}}" data-dtype="Number">
+  </div>
+  <div class="resource flex-group-center">
+    <label for="system.derived.mdef.bonus" class="resource-label">Bonus MDef</label>
+    <input type="text" name="system.derived.mdef.bonus" value="{{system.derived.mdef.bonus}}" data-dtype="Number">
+  </div>
+  <div class="resource flex-group-center">
+    <label for="system.derived.init.bonus" class="resource-label">Bonus Init</label>
+    <input type="text" name="system.derived.init.bonus" value="{{system.derived.init.bonus}}" data-dtype="Number">
+    <label class="checkbox">
+      <span>Elite?</span>
+      <input type="checkbox" name="system.isElite.value" {{checked system.isElite.value}}>
+    </label>
+  </div>
+</section>
+      </section>
+    </div>
+
+    {{!-- Biography Tab --}}
+    <div class="tab biography" data-group="primary" data-tab="description">
+      {{!-- If you want TinyMCE editors to output inline rolls when rendered,
+      you need to pass the actor's roll data to the rollData property. --}}
+      {{editor system.biography target="system.biography" rollData=rollData
+      button=true owner=owner editable=editable}}
+    </div>
+
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-items.html"}}
+    </div>
+
+    <div class="tab spells" data-group="primary" data-tab="spells">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-spells.html"}}
+    </div>
+
+    {{!-- Active Effects Tab --}}
+    <div class="tab behavior" data-group="primary" data-tab="behavior">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-behavior.html"}}
+    </div>
+
+    {{!-- Active Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-effects.html"}}
+    </div>
+  </section>
+</form>

@@ -1,0 +1,43 @@
+{
+  "id": "fabulaultima-v11",
+  "title": "Fabula Ultima Experimental",
+  "description": "The Fabula Ultima system for FoundryVTT!",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": 10,
+    "verified": "11.306",
+    "maximum": 11
+  },
+  "authors": [
+    {
+      "name": "Zarick13"
+    }
+  ],
+  "esmodules": ["module/fabulaultima.mjs"],
+  "styles": ["css/fabulaultima.css"],
+  "scripts": [],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "hp",
+  "secondaryTokenAttribute": "mp",
+  "url": "",
+  "manifest": "",
+  "download": "",
+  "license": "LICENSE.txt",
+  "changelog": "CHANGELOG.md",
+  "socket": true,
+  "relationships.requires":  [
+    {
+      "id": "socketlib",
+      "manifest": "https://raw.githubusercontent.com/manuelVo/foundryvtt-socketlib/master/module.json"
+    }
+  ]
+}

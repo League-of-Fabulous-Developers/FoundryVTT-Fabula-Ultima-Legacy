@@ -1,0 +1,206 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "templates": {
+      "base": {
+        "level": {
+          "value": 5
+        },
+        "resources": {
+          "hp": {
+            "value": 10,
+            "min": 0,
+            "max": 10,
+            "bonus": 0
+          },
+          "mp": {
+            "value": 10,
+            "min": 0,
+            "max": 10,
+            "bonus": 0
+          }
+        },
+        "attributes": {
+          "dex": {
+            "base": 6,
+            "current": 6
+          },
+          "ins": {
+            "base": 6,
+            "current": 6
+          },
+          "mig": {
+            "base": 6,
+            "current": 6
+          },
+          "wlp": {
+            "base": 6,
+            "current": 6
+          }
+        },
+        "derived": {
+          "crisis": { "value": 5 },
+          "init": { "value": 0, "bonus": 0 },
+          "def": { "value": 0, "bonus": 0 },
+          "mdef": { "value": 0, "bonus": 0 }
+        },
+        "castingAttributes": {
+          "primary": { "value": "ins" },
+          "secondary": { "value": "wlp" }
+        },
+        "resistances": {
+          "phys": { "value": 1 },
+          "air": { "value": 1 },
+          "bolt": { "value": 1 },
+          "dark": { "value": 1 },
+          "earth": { "value": 1 },
+          "fire": { "value": 1 },
+          "ice": { "value": 1 },
+          "light": { "value": 1 },
+          "poison": { "value": 1 }
+        }
+      }
+    },
+    "character": {
+      "templates": ["base"],
+      "resources": {
+        "ip": {
+          "value": 6,
+          "min": 0,
+          "max": 6
+        },
+        "fp": {
+          "value": 3
+        }
+      }
+    },
+    "npc": {
+      "templates": ["base"],
+      "isElite": { "value": false },
+      "isChampion": { "value": 1 }
+    }
+  },
+  "Item": {
+    "types": [
+      "weapon",
+      "shield",
+      "armor",
+      "accessory",
+      "class",
+      "skill",
+      "spell",
+      "miscAbility",
+      "behavior",
+      "consumable"
+    ],
+    "templates": {
+      "base": {
+        "description": ""
+      },
+      "item": {
+        "cost": { "value": 0 }
+      },
+      "equippable": {
+        "isMartial": { "value": false },
+        "quality": { "value": "" },
+        "isEquipped": { "value": false }
+      },
+      "defensive": {
+        "def": { "value": 0 },
+        "mdef": { "value": 0 },
+        "init": { "value": 0 }
+      },
+      "hasLevel": {
+        "level": { "value": 1, "max": 10, "min": 0 }
+      },
+      "hasClass": {
+        "class": { "value": "" }
+      },
+      "hasRoll": {
+        "class": { "value": false }
+      },
+      "rollInfo": {
+        "useWeapon": {
+          "accuracy": {
+            "value": false
+          },
+          "damage": {
+            "value": false
+          },
+          "hrZero": {
+            "value": false
+          }
+        },
+        "attributes": {
+          "primary": { "value": "mig" },
+          "secondary": { "value": "mig" }
+        },
+        "accuracy": { "value": 0 },
+        "damage": {
+          "hasDamage": { "value": false },
+          "value": 0,
+          "type": { "value": "physical" }
+        }
+      },
+      "showTitleCard": {
+        "showTitleCard": { "value": false }
+      }
+    },
+    "weapon": {
+      "templates": ["base", "item", "equippable"],
+      "attributes": {
+        "primary": { "value": "mig" },
+        "secondary": { "value": "dex" }
+      },
+      "accuracy": { "value": 0 },
+      "damage": { "value": 6 },
+      "hands": { "value": 1 },
+      "type": { "value": "Melee" },
+      "damageType": { "value": "physical" }
+    },
+    "shield": {
+      "templates": ["base", "item", "equippable", "defensive"]
+    },
+    "armor": {
+      "templates": ["base", "item", "equippable", "defensive"]
+    },
+    "accessory": {
+      "templates": ["base", "item", "equippable", "defensive"]
+    },
+    "class": {
+      "templates": ["base", "hasLevel"],
+      "benefits": {
+        "hp": { "value": false },
+        "mp": { "value": false },
+        "ip": { "value": false },
+        "proj": { "value": false },
+        "ritual": { "value": false },
+        "melee": { "value": false },
+        "ranged": { "value": false },
+        "armor": { "value": false },
+        "shields": { "value": false }
+      }
+    },
+    "skill": {
+      "templates": ["base", "hasLevel", "hasClass", "rollInfo", "showTitleCard"]
+    },
+    "spell": {
+      "templates": ["base", "hasClass", "rollInfo"],
+      "mpCost": { "value": "" },
+      "target": { "value": "" },
+      "duration": { "value": "" },
+      "isOffensive": { "value": false }
+    },
+    "miscAbility": {
+      "templates": ["base", "rollInfo", "showTitleCard"]
+    },
+    "behavior": {
+      "templates": ["base"],
+      "weight": { "value": 1 }
+    },
+    "consumable": {
+      "templates": ["base"],
+      "ipCost": { "value": 3 }
+    }
+  }
+}

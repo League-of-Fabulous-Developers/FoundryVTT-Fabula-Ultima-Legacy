@@ -1,0 +1,28 @@
+{
+  "FABULAULTIMA.AttributeMig": "Might",
+  "FABULAULTIMA.AttributeDex": "Dexterity",
+  "FABULAULTIMA.AttributeIns": "Insight",
+  "FABULAULTIMA.AttributeWlp": "Willpower",
+
+  "FABULAULTIMA.AttributeMigAbbr": "MIG",
+  "FABULAULTIMA.AttributeDexAbbr": "DEX",
+  "FABULAULTIMA.AttributeInsAbbr": "INS",
+  "FABULAULTIMA.AttributeWlpAbbr": "WLP",
+
+  "FABULAULTIMA.EffectCreate": "Create Effect",
+  "FABULAULTIMA.EffectToggle": "Toggle Effect",
+  "FABULAULTIMA.EffectEdit": "Edit Effect",
+  "FABULAULTIMA.EffectDelete": "Delete Effect",
+
+  "FABULAULTIMA.Add": "Add",
+
+  "FABULAULTIMA.BenefitHp": "+5 HP",
+  "FABULAULTIMA.BenefitMp": "+5 MP",
+  "FABULAULTIMA.BenefitIp": "+2 IP",
+  "FABULAULTIMA.BenefitProj": "Projects",
+  "FABULAULTIMA.BenefitRitual": "Ritualism",
+  "FABULAULTIMA.BenefitMelee": "Martial melee weapon proficiency",
+  "FABULAULTIMA.BenefitRanged": "Martial ranged weapon proficiency",
+  "FABULAULTIMA.BenefitArmor": "Martial armor proficiency",
+  "FABULAULTIMA.BenefitShields": "Martial shield proficiency"
+}

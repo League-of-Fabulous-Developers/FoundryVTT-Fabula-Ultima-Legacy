@@ -1,0 +1,573 @@
+<form class="{{cssClass}} {{actor.type}} backgroundstyle fabulaultima-actor-sheet" autocomplete="off">
+  {{!-- Sheet Header --}}
+  <header class="sheet-header">
+    <img
+      class="profile-img"
+      src="{{actor.img}}"
+      data-edit="img"
+      title="{{actor.name}}"
+    />
+    <div class="header-fields">
+      <h1 class="charname">
+        <input
+          name="name"
+          type="text"
+          value="{{actor.name}}"
+          placeholder="Name"
+		  style="color: ivory; background-color: transparent; border-color: transparent;"
+        />
+      </h1>
+      {{!-- The grid classes are defined in scss/global/_grid.scss. To use, use
+      both the "grid" and "grid-Ncol" class where "N" can be any number from 1
+      to 12 and will create that number of columns. --}} 
+      <div class="grid grid-3col">
+        <!-- HP -->
+        <div class="resource flex-group-center">
+          <label for="system.resources.hp.value" class="resource-label">
+            <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-heart"></i> HP</p>
+          </label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="text"
+              name="system.resources.hp.value"
+              value="{{system.resources.hp.value}}"
+              data-dtype="Number"
+              style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+            />
+            <span style="color: seagreen; font-size: 24px; font-weight: bold;">/</span>
+            <span style="color: seagreen; font-size: 20px; font-weight: bold;">{{system.resources.hp.max}}</span>
+          </div>
+        </div>
+		
+        <!-- Fabula Points -->
+        <div class="resource flex-group-center grid-span-row-2" style="position: relative;">
+          <label for="system.fp.value">
+            <p class="sheet-labels"><i class="fa-solid fa-crystal-ball"></i> Fabula<br>‎ ‎ ‎ ‎ Points</p>
+          </label>
+          <input
+            type="text"
+            name="system.fp.value"
+            value="{{system.fp.value}}"
+            data-dtype="Number"
+            style="height: auto; color: teal; text-shadow: 3px 3px ivory; font-size: 72px; font-weight: bold; background-color: transparent; border-color: transparent;"
+          />
+        </div>
+		
+        <!-- Resource Points -->
+        <div class="resource flex-group-center grid-span-row-2" style="position: relative;" >
+           <label for="system.rp.value">
+            <p class="sheet-labels"><i class="fa-solid fa-tally"></i> Resource<br>‎ Points</p>
+          </label>
+          <input
+            type="text"
+            name="system.rp1.value"
+            value="{{system.rp1.value}}"
+            data-dtype="Text"
+            style="height: auto; color: teal; text-shadow: 3px 3px ivory; font-size: 18px; font-weight: bold; background-color: transparent; border-color: transparent;"
+          />
+		  <input
+            type="text"
+            name="system.rp2.value"
+            value="{{system.rp2.value}}"
+            data-dtype="Text"
+            style="height: auto; color: teal; text-shadow: 3px 3px ivory; font-size: 18px; font-weight: bold; background-color: transparent; border-color: transparent;"
+          />
+		  <input
+            type="text"
+            name="system.rp3.value"
+            value="{{system.rp3.value}}"
+            data-dtype="Text"
+            style="height: auto; color: teal; text-shadow: 3px 3px ivory; font-size: 18px; font-weight: bold; background-color: transparent; border-color: transparent;"
+          />
+        </div>
+
+
+      
+        <!-- MP -->
+        <div class="resource flex-group-center">
+          <label for="system.resources.mp.value" class="resource-label">
+            <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-sparkles"></i> MP</p>
+          </label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="text"
+              name="system.resources.mp.value"
+              value="{{system.resources.mp.value}}"
+              data-dtype="Number"
+              style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+            />
+            <span style="color: seagreen; font-size: 24px; font-weight: bold;">/</span>
+            <span style="color: seagreen; font-size: 20px; font-weight: bold;">{{system.resources.mp.max}}</span>
+          </div>
+        </div>
+      
+        <!-- IP -->
+        <div class="resource flex-group-center">
+          <label for="system.resources.ip.value" class="resource-label">
+            <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-backpack"></i> IP</p>
+          </label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <input
+              type="text"
+              name="system.resources.ip.value"
+              value="{{system.resources.ip.value}}"
+              data-dtype="Number"
+              style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+            />
+            <span style="color: seagreen; font-size: 24px; font-weight: bold;">/</span>
+            <span style="color: seagreen; font-size: 20px; font-weight: bold;">{{system.resources.ip.max}}</span>
+          </div>
+        </div>
+      
+        <!-- DEF -->
+        <div class="resource flex-group-center">
+          <label for="system.derived.def.value" class="resource-label">
+            <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-shield"></i> Def</p>
+          </label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <span style="color: seagreen; text-shadow: 3px 3px ivory; font-size: 36px; font-weight: bold;">{{system.derived.def.value}}</span>
+          </div>
+        </div>
+      
+        <!-- MDEF -->
+        <div class="resource flex-group-center">
+          <label for="system.derived.mdef.value" class="resource-label">
+            <p style="color: seagreen; font-weight: bold"><i class="fa-solid fa-shield-halved"></i> MDef</p>
+          </label>
+          <div class="resource-content flexrow flex-center flex-between">
+            <span style="color: seagreen; text-shadow: 3px 3px ivory; font-size: 36px; font-weight: bold;">{{system.derived.mdef.value}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Sheet Tab Navigation --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    {{!-- Default tab is specified in actor-sheet.mjs --}}
+    <a class="item rollable TabStyle" data-tab="features">Features</a>
+    <a class="item rollable TabStyle" data-tab="skills">Classes/Skills</a>
+    <a class="item rollable TabStyle" data-tab="items">Items</a>
+    <a class="item rollable TabStyle" data-tab="spells">Spells</a>
+    <a class="item rollable TabStyle" data-tab="effects">Effects</a>
+  </nav>
+
+  {{!-- Sheet Body --}}
+  <section class="sheet-body">
+    {{!-- Owned Features Tab --}}
+    <div class="tab features" data-group="primary" data-tab="features">
+      <section class="grid grid-3col" style="border: 4px  seagreen">
+        <aside class="sidebar flex-group-center">
+          {{!-- The grid classes are defined in scss/global/_grid.scss. To use,
+          use both the "grid" and "grid-Ncol" class where "N" can be any number
+          from 1 to 12 and will create that number of columns. --}}
+          <div class="abilities flexcol">
+            {{#each system.attributes as |attribute key|}}
+            <div class="ability flexrow flex-group-center"  style="margin-top:3px;">
+              <label
+                for="system.attributes.{{key}}.base"
+                class="resource-label flexlarge align-left"
+                data-label="{{attribute.label}}"
+                ><p class="sheet-labels">{{attribute.label}}</p></label
+              >
+              <select
+                data-dtype="Number"
+                value="{{attribute.base}}"
+                name="system.attributes.{{key}}.base"
+				style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+              >
+                {{#select attribute.base}}
+                <option value="6">d6</option>
+                <option value="8">d8</option>
+                <option value="10">d10</option>
+                <option value="12">d12</option>
+                {{/select}}
+              </select>
+              <span class="ability-mod"><p style="color: seagreen; font-size:20px; font-weight:bold;">{{ attribute.current }}</p></span>
+            </div>
+            {{/each}}
+          </div>
+        </aside>
+        {{!-- For the main features list, span the right two columns --}}
+		<section class="grid-start-2 align-center" style="margin-top:15px;">
+            <span class="rollable" 
+				  data-roll="1d@{{system.rollInfo.attributes.primary.value}} + 1d@{{system.rollInfo.attributes.secondary.value}}"
+				  data-label="Roll Checks">
+			<label
+              ><p class="rollable sheet-labels" style="margin-top: 15px;"><i class="fa-solid fa-dice"></i>  Roll Checks</p></label>
+			</span>
+			
+		  <div class="resource flex-group-center" >
+			<select
+				value="{{system.rollInfo.attributes.primary.value}}"
+				name="system.rollInfo.attributes.primary.value"
+				style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;">
+				{{#select system.rollInfo.attributes.primary.value}}
+				<option value="attributes.dex.current">DEX</option>
+				<option value="attributes.ins.current">INS</option>
+				<option value="attributes.mig.current">MIG</option>
+				<option value="attributes.wlp.current">WLP</option>
+				{{/select}}
+			  </select>
+               +
+			  <select
+				value="{{system.rollInfo.attributes.secondary.value}}"
+				name="system.rollInfo.attributes.secondary.value"
+				style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			  >
+				{{#select system.rollInfo.attributes.secondary.value}}
+				<option value="attributes.dex.current">DEX</option>
+				<option value="attributes.ins.current">INS</option>
+				<option value="attributes.mig.current">MIG</option>
+				<option value="attributes.wlp.current">WLP</option>
+				{{/select}}
+			  </select>
+          </div>
+		   <div class="resource flex-group-center" style="margin-top:15px;">
+		    <div
+            class="resource-content flexrow flex-center flex-between rollable"
+            data-label="Initiative"
+			data-roll="1d@attributes.dex.current + 1d@attributes.ins.current + @derived.init.value"
+            >
+          <label for="system.derived.init.value" class="resource-label">
+          <p class="rollable sheet-labels"><i class="fa-solid fa-clock"></i>  Initiative</p>
+		  </label>
+		  </div>
+            <span style="color: seagreen; font-size:20px; font-weight:bold;">{{ system.derived.init.value }}</span>
+        </div>
+		</section>
+        <section class="grid-start-3 align-right">
+		  <div class="resource flex-group-center">
+            <label for="system.resources.level.value" class="resource-label"
+              ><p class="sheet-labels"><i class="fa-solid fa-chart-simple"></i>  Level</p></label
+            >
+            <input
+              type="text"
+              name="system.level.value"
+              value="{{system.level.value}}"
+              data-dtype="Number"
+			  style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+            />
+          </div>
+         <div class="resource flex-group-center">
+            <label for="system.resources.exp.value" class="resource-label"
+              ><p class="sheet-labels"><i class="fa-solid fa-feather-pointed"></i>  EXP</p></label
+            >
+            <input
+              type="text"
+              name="system.resources.exp.value"
+              value="{{system.resources.exp.value}}"
+              data-dtype="Number"
+			  style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+            />
+          </div>		
+		  <div class="resource flex-group-center">
+            <label for="system.resources.zenit.value" class="resource-label"
+              ><p class="sheet-labels"><i class="fa-solid fa-coin"></i>  Zenit</p></label
+            >
+            <input
+              type="text"
+              name="system.resources.zenit.value"
+              value="{{system.resources.zenit.value}}"
+              data-dtype="Number"
+			  style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+            />
+			</div>
+        </section>
+      </section>
+	  <section class="grid-start-3" style="border-top: 4px solid seagreen; margin: 20px;">
+	  <label><p class="sheet-labels" style="text-align:center;"><i class="fa-solid fa-image-portrait"></i>  Traits</p></label>
+	  	  	<div class="flex-group-center">
+			<label class="align-left"><p class="sheet-labels">Identity</p></label>
+			 <input
+			type="text"
+			name="system.resources.identity.name"
+			value="{{system.resources.identity.name}}"
+			data-dtype="String"
+			style="color: ivory; background-color: seagreen; border-color: transparent;"
+			/>
+			<label class="align-left"><p class="sheet-labels">Theme</p></label>
+			 <input
+			type="text"
+			name="system.resources.theme.name"
+			value="{{system.resources.theme.name}}"
+			data-dtype="String"
+			style="color: ivory; background-color: seagreen; border-color: transparent;"
+			/>
+			<label class="align-left"><p class="sheet-labels">Origin</p></label>
+			 <input
+			type="text"
+			name="system.resources.origin.name"
+			value="{{system.resources.origin.name}}"
+			data-dtype="String"
+			style="color: ivory; background-color: seagreen; border-color: transparent;"
+			/>
+			</div>
+		<label><p style="color: seagreen; font-weight: bold">  </label>
+	  <section class="grid-start-4" style="border-top: 4px solid seagreen;border-bottom: 4px solid seagreen; margin: 20px;">
+	  <label for ="system.resources.bond1.name" class="resource-label">
+			<p class="sheet-labels" style="text-align:center;"><i class="fa-solid fa-link"></i>  Bonds</p></label>
+	  	<div class="abilities grid grid-4col">
+			 <input
+			type="text"
+			name="system.resources.bond1.name"
+			value="{{system.resources.bond1.name}}"
+			data-dtype="String"
+			style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			/>
+			 <select
+                value="{{system.resources.bond1.admInf}}"
+                name="system.resources.bond1.admInf"
+				style="color: ivory; background-color: seagreen; border-color: transparent;"
+              >
+				{{#select system.resources.bond1.admInf}}
+				<option value=""> </option>
+                <option value="Admiration">Admiration</option>
+                <option value="Inferiority">Inferiority</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond1.loyMis}}"
+                name="system.resources.bond1.loyMis"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond1.loyMis}}
+				<option value=""> </option>
+                <option value="Loyalty">Loyalty</option>
+                <option value="Mistrust">Mistrust</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond1.affHat}}"
+                name="system.resources.bond1.affHat"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond1.affHat}}
+				<option value=""> </option>
+                <option value="Affection">Affection</option>
+                <option value="Hatred">Hatred</option>
+				{{/select}}
+			</select>
+			</div>
+		<div class="abilities grid grid-4col">
+			 <input
+			type="text"
+			name="system.resources.bond2.name"
+			value="{{system.resources.bond2.name}}"
+			data-dtype="String"
+			style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			/>
+			 <select
+                value="{{system.resources.bond2.admInf}}"
+                name="system.resources.bond2.admInf"
+				style="color: ivory; background-color: seagreen; border-color: transparent;"
+              >
+				{{#select system.resources.bond2.admInf}}
+				<option value=""> </option>
+                <option value="Admiration">Admiration</option>
+                <option value="Inferiority">Inferiority</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond2.loyMis}}"
+                name="system.resources.bond2.loyMis"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond2.loyMis}}
+				<option value=""> </option>
+                <option value="Loyalty">Loyalty</option>
+                <option value="Mistrust">Mistrust</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond2.affHat}}"
+                name="system.resources.bond2.affHat"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond2.affHat}}
+				<option value=""> </option>
+                <option value="Affection">Affection</option>
+                <option value="Hatred">Hatred</option>
+				{{/select}}
+			</select>
+			</div>
+	  	<div class="abilities grid grid-4col">
+			 <input
+			type="text"
+			name="system.resources.bond3.name"
+			value="{{system.resources.bond3.name}}"
+			data-dtype="String"
+			style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			/>
+			 <select
+                value="{{system.resources.bond3.admInf}}"
+                name="system.resources.bond3.admInf"
+				style="color: ivory; background-color: seagreen; border-color: transparent;"
+              >
+				{{#select system.resources.bond3.admInf}}
+				<option value=""> </option>
+                <option value="Admiration">Admiration</option>
+                <option value="Inferiority">Inferiority</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond3.loyMis}}"
+                name="system.resources.bond3.loyMis"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond3.loyMis}}
+				<option value=""> </option>
+                <option value="Loyalty">Loyalty</option>
+                <option value="Mistrust">Mistrust</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond3.affHat}}"
+                name="system.resources.bond3.affHat"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond3.affHat}}
+				<option value=""> </option>
+                <option value="Affection">Affection</option>
+                <option value="Hatred">Hatred</option>
+				{{/select}}
+			</select>
+			</div>
+	  	<div class="abilities grid grid-4col">
+			 <input
+			type="text"
+			name="system.resources.bond4.name"
+			value="{{system.resources.bond4.name}}"
+			data-dtype="String"
+			style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			/>
+			 <select
+                value="{{system.resources.bond4.admInf}}"
+                name="system.resources.bond4.admInf"
+				style="color: ivory; background-color: seagreen; border-color: transparent;"
+              >
+				{{#select system.resources.bond4.admInf}}
+				<option value=""> </option>
+                <option value="Admiration">Admiration</option>
+                <option value="Inferiority">Inferiority</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond4.loyMis}}"
+                name="system.resources.bond4.loyMis"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond4.loyMis}}
+				<option value=""> </option>
+                <option value="Loyalty">Loyalty</option>
+                <option value="Mistrust">Mistrust</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond4.affHat}}"
+                name="system.resources.bond4.affHat"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond4.affHat}}
+				<option value=""> </option>
+                <option value="Affection">Affection</option>
+                <option value="Hatred">Hatred</option>
+				{{/select}}
+			</select>
+			</div>
+	  	<div class="abilities grid grid-4col">
+			 <input
+			type="text"
+			name="system.resources.bond5.name"
+			value="{{system.resources.bond5.name}}"
+			data-dtype="String"
+			style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			/>
+			 <select
+                value="{{system.resources.bond5.admInf}}"
+                name="system.resources.bond5.admInf"
+				style="color: ivory; background-color: seagreen; border-color: transparent;"
+              >
+				{{#select system.resources.bond5.admInf}}
+				<option value=""> </option>
+                <option value="Admiration">Admiration</option>
+                <option value="Inferiority">Inferiority</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond5.loyMis}}"
+                name="system.resources.bond5.loyMis"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond5.loyMis}}
+				<option value=""> </option>
+                <option value="Loyalty">Loyalty</option>
+                <option value="Mistrust">Mistrust</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond5.affHat}}"
+                name="system.resources.bond5.affHat"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond5.affHat}}
+				<option value=""> </option>
+                <option value="Affection">Affection</option>
+                <option value="Hatred">Hatred</option>
+				{{/select}}
+			</select>
+			</div>
+	  	<div class="abilities grid grid-4col">
+			 <input
+			type="text"
+			name="system.resources.bond6.name"
+			value="{{system.resources.bond6.name}}"
+			data-dtype="String"
+			style="color: ivory; font-size: 18px; background-color: seagreen; border-color: transparent;"
+			/>
+			 <select
+                value="{{system.resources.bond6.admInf}}"
+                name="system.resources.bond6.admInf"
+				style="color: ivory; background-color: seagreen; border-color: transparent;"
+              >
+				{{#select system.resources.bond6.admInf}}
+				<option value=""> </option>
+                <option value="Admiration">Admiration</option>
+                <option value="Inferiority">Inferiority</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond6.loyMis}}"
+                name="system.resources.bond6.loyMis"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond6.loyMis}}
+				<option value=""> </option>
+                <option value="Loyalty">Loyalty</option>
+                <option value="Mistrust">Mistrust</option>
+				{{/select}}
+			</select>
+			<select
+                value="{{system.resources.bond6.affHat}}"
+                name="system.resources.bond6.affHat"
+				style="color: ivory; background-color: seagreen; border-color: transparent;">
+				{{#select system.resources.bond6.affHat}}
+				<option value=""> </option>
+                <option value="Affection">Affection</option>
+                <option value="Hatred">Hatred</option>
+				{{/select}}
+			</select>
+			</div>
+		</section>
+		</section>
+    </div>
+    {{!-- Skills Tab --}}
+    <div class="tab skills" data-group="primary" data-tab="skills">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-features.html"}}
+    </div>
+
+    {{!-- Owned Items Tab --}}
+    <div class="tab items" data-group="primary" data-tab="items">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-items.html"}}
+    </div>
+
+    {{!-- Owned Spells Tab --}}
+    <div class="tab spells" data-group="primary" data-tab="spells">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-spells.html"}}
+    </div>
+
+    {{!-- Active Effects Tab --}}
+    <div class="tab effects flexcol" data-group="primary" data-tab="effects">
+      {{> "systems/fabulaultima/templates/actor/parts/actor-effects.html"}}
+    </div>
+  </section>
+</form>
