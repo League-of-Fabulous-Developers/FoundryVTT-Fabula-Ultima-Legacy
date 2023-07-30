@@ -131,24 +131,29 @@ export class FabulaUltimaActor extends Actor {
 
   _handleStatusEffects(actorData) {
     const systemData = actorData.system;
-
+  
     const statMods = {};
-
+  
     Object.keys(systemData.attributes).forEach(
-      (attrKey) => (statMods[attrKey] = 0)
+    (attrKey) => (statMods[attrKey] = 0)
     );
-
+  
     actorData.temporaryEffects.forEach((effect) => {
-      const status = CONFIG.statusEffects.find(
-        (status) => status.id === effect.flags.core.statusId
+      effect.statuses.forEach((statusId) => { // Loop through each statusId in effect.statuses
+        const status = CONFIG.statusEffects.find(
+      (status) => status.id === statusId
       );
-
-      if (status) {
-        console.log(status);
-        status.stats.forEach((attrKey) => (statMods[attrKey] += status.mod));
-      }
+  
+        if (status) {
+          console.log(status);
+          const stats = status.stats || []; // Check if 'stats' exists, otherwise use an empty array
+          const mod = status.mod || 0; // Check if 'mod' exists, otherwise use 0
+  
+          stats.forEach((attrKey) => (statMods[attrKey] += mod));
+        }
+      });
     });
-
+  
     for (let [key, attr] of Object.entries(systemData.attributes)) {
       let newVal = attr.base + statMods[key];
       if (newVal > 12) {
@@ -157,10 +162,12 @@ export class FabulaUltimaActor extends Actor {
       if (newVal < 6) {
         newVal = 6;
       }
-
+  
       attr.current = newVal;
     }
   }
+  
+  
 
   _calculateInitOrInitMod(actorData) {
     const equipped = actorData.items.filter(
