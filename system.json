@@ -1,6 +1,6 @@
 {
-  "id": "fabulaultima-v11",
-  "title": "Fabula Ultima Experimental",
+  "id": "fabulaultima",
+  "title": "Fabula Ultima",
   "description": "The Fabula Ultima system for FoundryVTT!",
   "version": "0.1.0",
   "compatibility": {
