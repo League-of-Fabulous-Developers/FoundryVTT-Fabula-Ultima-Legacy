@@ -1,43 +1,43 @@
-# FabulaUltima System
+# Fabula Ultima System (Legacy Support)
 
-![Foundry v10](https://img.shields.io/badge/foundry-v10-green)
+![Fabula Ultima](https://www.needgames.it/wp-content/uploads/2021/06/fu-sitecover.jpg)
 
-This system is a fabulaultima system that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
+Welcome to the Fabula Ultima System for the Foundry Virtual Tabletop. This system is designed to enhance your experience of playing Fabula Ultima. Please note that licensed Fabula Ultima content is not provided with this system. We adhere RoosterEma's guidelines and strive to ensure that the core book and supplements remain essential to your experience.
 
-## Usage
+Legacy support for Zarick1342/Quake's Fabula Ultima System, with patches for:
 
-Before installing this system, you should rename any files that have `fabulaultima` in their filename to use whatever machine-safe name your system needs, such as `adnd2e` if you were building a system for 2nd edition Advanced Dungeons & Dragons. In addition, you should search through the files for `fabulaultima` and `FabulaUltima` and do the same for those, replacing them with appropriate names for your system.
+- V10/V11 Compatibility
+- Fixed Status Effects
 
-### System Generator
+For the latest updates and active development of Fabula Ultima System, visit [Fabula Ultima System](https://github.com/spyrella/fabulaultima).
+## Installation
 
-This project is also available as generator that can be run with npm: https://www.npmjs.com/package/generator-foundry
+### Semi-Automatic Installation
+1. Open the Foundry Setup screen and navigate to the Game Systems tab.
+2. Click the "Install System" button.
+3. [V10] Use the following Manifest URL: ```[https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json](https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json)```
+4. [V11] Use the following Manifest URL: ```[https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json](https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json)```
+5. Click "Install."
 
-### Vue 3 FabulaUltima
+### Manual Installation
+1. Visit the [Release](https://github.com/spyrella/fabulaultima-legacy/releases) page to find your desired version.
+2. [V10] Download the [fabulaultima-v10-experimental-0.1.0.zip](https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/fabulaultima-v10-0.1.0.zip) file for your chosen version.
+3. [V11] Download the [fabulaultima-v11-experimental-0.1.0.zip](https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/fabulaultima-v11-0.1.0.zip) file for your chosen version.
+4. Unzip the downloaded file to your FoundryVTT Data systems folder. (For more details, refer to the [FoundryVTT Configuration Guide](https://foundryvtt.com/article/configuration/#where-user-data)).
+5. Ensure that you have the `socketLib` module installed.
+6. Restart FoundryVTT if necessary.
 
-Alternatively, there's another build of this system that supports using Vue 3 components (ES module build target) for character sheet templates.
+## Feedback
 
-Head over to the [Vue3FabulaUltima System](https://gitlab.com/asacolips-projects/foundry-mods/vue3fabulaultima) repo if you're interested in using Vue!
+Please report any bugs or suggest features using the Issues tab on GitHub.
 
-### Tutorial
+You can also find a list of feature suggestions and ideas on our [Trello board](https://trello.com/b/VEa8VQHc/fabula-ultima-boilerplate-system). Feel free to review the existing suggestions before making new ones to avoid duplication.
 
-For much more information on how to use this system as a starting point for making your own, see the [full tutorial on the Foundry Wiki](https://foundryvtt.wiki/en/development/guides/SD-tutorial)!
+For questions and discussions, you can join the Rooster Games Discord Server at [#bots-and-tools-discussion](https://discord.com/channels/447159961491865610/1034111889740943470). Before suggesting new features, please review the existing issues to avoid duplication.
 
-## Sheet Layout
+## Credits
 
-This system includes a handful of helper CSS classes to help you lay out your sheets if you're not comfortable diving into CSS fully. Those are:
-
-- `flexcol`: Included by Foundry itself, this lays out the child elements of whatever element you place this on vertically.
-- `flexrow`: Included by Foundry itself, this lays out the child elements of whatever element you place this on horizontally.
-- `flex-center`: When used on something that's using flexrow or flexcol, this will center the items and text.
-- `flex-between`: When used on something that's using flexrow or flexcol, this will attempt to place space between the items. Similar to "justify" in word processors.
-- `flex-group-center`: Add a border, padding, and center all items.
-- `flex-group-left`: Add a border, padding, and left align all items.
-- `flex-group-right`: Add a border, padding, and right align all items.
-- `grid`: When combined with the `grid-Ncol` classes, this will lay out child elements in a grid.
-- `grid-Ncol`: Replace `N` with any number from 1-12, such as `grid-3col`. When combined with `grid`, this will layout child elements in a grid with a number of columns equal to the number specified.
-
-## Compiling the CSS
-
-This repo includes both CSS for the theme and SCSS source files. If you're new to CSS, it's probably easier to just work in those files directly and delete the SCSS directory. If you're interested in using a CSS preprocessor to add support for nesting, variables, and more, you can run `npm install` in this directory to install the dependencies for the scss compiler. After that, just run `npm run gulp` to compile the SCSS and start a process that watches for new changes.
-
-![image](http://mattsmith.in/images/fabulaultima.png)
+We extend our gratitude to the following contributors:
+- This system is a fork of the [Fabula Ultima Boilerplate System](https://github.com/zarick1342/fabula-ultima-system) by [zarick1342](https://github.com/zarick1342/).
+- Various upgrades and CSS design improvements by [@serpuss/quake](https://github.com/serpuss).
+- Current maintainer: [spyrella](https://github.com/spyrella) - for ongoing updates to the system.
