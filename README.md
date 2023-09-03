@@ -15,8 +15,8 @@ For the latest updates and active development of Fabula Ultima System, visit [Fa
 ### Semi-Automatic Installation
 1. Open the Foundry Setup screen and navigate to the Game Systems tab.
 2. Click the "Install System" button.
-3. [V10] Use the following Manifest URL: ```[https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json](https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json)```
-4. [V11] Use the following Manifest URL: ```[https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json](https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json)```
+3. [V10] Use the following Manifest URL: ```https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json```
+4. [V11] Use the following Manifest URL: ```https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json```
 5. Click "Install."
 
 ### Manual Installation
