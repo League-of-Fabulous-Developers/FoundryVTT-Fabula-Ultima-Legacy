@@ -129,36 +129,53 @@ export class FabulaUltimaActor extends Actor {
     }
   }
 
-  _handleStatusEffects(actorData) {
-    const systemData = actorData.system;
+  /**
+   * Handles the calculation of attribute modifiers based on applied status effects for an actor.
+   *
+   * @param {object} actorData - The data object representing an actor in Foundry VTT.
+   */
+  _handleStatusEffects (actorData) {
+    // Extract the system-specific data from actorData.
+    const systemData = actorData.system
 
-    const statMods = {};
+    // Initialize an object to store attribute modifiers.
+    const statMods = {}
 
+    // Initialize attribute modifiers to 0 for each attribute key.
     Object.keys(systemData.attributes).forEach(
-      (attrKey) => (statMods[attrKey] = 0)
-    );
+      attrKey => (statMods[attrKey] = 0)
+    )
 
-    actorData.temporaryEffects.forEach((effect) => {
-      const status = CONFIG.statusEffects.find(
-        (status) => status.id === effect.flags.core.statusId
-      );
+    // Iterate through each temporary effect applied to the actor.
+    actorData.temporaryEffects.forEach(effect => {
+      // Get the status associated with the effect, if it exists.
+      if (effect.flags.core) {
+        const status = CONFIG.statusEffects.find(
+          status => status.id === effect.flags.core.statusId
+        )
 
-      if (status) {
-        console.log(status);
-        status.stats.forEach((attrKey) => (statMods[attrKey] += status.mod));
+        // If a valid status is found, apply its modifiers to the corresponding attributes.
+        if (status) {
+          const stats = status.stats || []
+          const mod = status.mod || 0
+
+          stats.forEach(attrKey => (statMods[attrKey] += mod))
+        }
       }
-    });
+    })
 
+    // Calculate new attribute values with the applied modifiers.
     for (let [key, attr] of Object.entries(systemData.attributes)) {
-      let newVal = attr.base + statMods[key];
+      let newVal = attr.base + statMods[key]
       if (newVal > 12) {
-        newVal = 12;
+        newVal = 12
       }
       if (newVal < 6) {
-        newVal = 6;
+        newVal = 6
       }
 
-      attr.current = newVal;
+      // Update the current attribute value with the calculated new value.
+      attr.current = newVal
     }
   }
 
