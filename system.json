@@ -5,8 +5,8 @@
   "version": "0.1.0",
   "compatibility": {
     "minimum": 10,
-    "verified": "11.306",
-    "maximum": 11
+    "verified": "10.303",
+    "maximum": 10
   },
   "authors": [
     {
@@ -29,8 +29,8 @@
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "mp",
   "url": "https://github.com/spyrella/fabulaultima-legacy",
-  "manifest": "https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json",
-  "download": "https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/fabulaultima-v11-0.1.0.zip",
+  "manifest": "https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json",
+  "download": "https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/fabulaultima-v10-0.1.0.zip",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md",
   "socket": true,
