@@ -1,5 +1,7 @@
 # CHANGELOG
 
-## 1.2.0
+## 0.1.0
 
-- Add support for Foundry v10
+- Added support for Foundry v10 
+- Added support for Foundry v11
+- Fixed Temporary Status Effects Glitch
