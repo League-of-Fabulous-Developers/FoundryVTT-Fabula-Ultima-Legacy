@@ -9,20 +9,20 @@ Legacy support for Zarick1342/Quake's Fabula Ultima System, with patches for:
 - V10/V11 Compatibility
 - Fixed Status Effects
 
-For the latest updates and active development of Fabula Ultima System, visit [Fabula Ultima System](https://github.com/spyrella/fabulaultima).
+For the latest updates and active development of Fabula Ultima System, visit [Fabula Ultima System](https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima-Experimental)
 ## Installation
 
 ### Semi-Automatic Installation
 1. Open the Foundry Setup screen and navigate to the Game Systems tab.
 2. Click the "Install System" button.
-3. [V10] Use the following Manifest URL: ```https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json```
-4. [V11] Use the following Manifest URL: ```https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/system.json```
+3. [V10] Use the following Manifest URL: ```https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima-Legacy/releases/download/V10/system.json```
+4. [V11] Use the following Manifest URL: ```https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima-Legacy/releases/download/V11/system.json```
 5. Click "Install."
 
 ### Manual Installation
-1. Visit the [Release](https://github.com/spyrella/fabulaultima-legacy/releases) page to find your desired version.
-2. [V10] Download the [fabulaultima-v10-experimental-0.1.0.zip](https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/fabulaultima-v10-0.1.0.zip) file for your chosen version.
-3. [V11] Download the [fabulaultima-v11-experimental-0.1.0.zip](https://github.com/spyrella/fabulaultima-legacy/releases/download/V11/fabulaultima-v11-0.1.0.zip) file for your chosen version.
+1. Visit the [Release](https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima-Legacy/releases) page to find your desired version.
+2. [V10] Download the [fabulaultima-v10-experimental-0.1.0.zip](https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima-Legacy/releases/download/V10/fabulaultima-v10-0.1.0.zip) file for your chosen version.
+3. [V11] Download the [fabulaultima-v11-experimental-0.1.0.zip](https://github.com/League-of-Fabulous-Developers/FoundryVTT-Fabula-Ultima-Legacy/releases/download/V11/fabulaultima-v11-0.1.0.zip) file for your chosen version.
 4. Unzip the downloaded file to your FoundryVTT Data systems folder. (For more details, refer to the [FoundryVTT Configuration Guide](https://foundryvtt.com/article/configuration/#where-user-data)).
 5. Ensure that you have the `socketLib` module installed.
 6. Restart FoundryVTT if necessary.
