@@ -2,7 +2,7 @@
 
 ![Fabula Ultima](https://www.needgames.it/wp-content/uploads/2021/06/fu-sitecover.jpg)
 
-Welcome to the Fabula Ultima System for the Foundry Virtual Tabletop. This system is designed to enhance your experience of playing Fabula Ultima. Please note that licensed Fabula Ultima content is not provided with this system. We adhere RoosterEma's guidelines and strive to ensure that the core book and supplements remain essential to your experience.
+Welcome to the Fabula Ultima System for the Foundry Virtual Tabletop. This system is designed to enhance your experience of playing [Fabula Ultima](https://www.needgames.it/fabula-ultima-en/) by [Need Games](https://www.needgames.it/). Please note that licensed Fabula Ultima content is not provided with this system. We adhere RoosterEma's guidelines and strive to ensure that the core book and supplements remain essential to your experience.
 
 Legacy support for Zarick1342/Quake's Fabula Ultima System, with patches for:
 
