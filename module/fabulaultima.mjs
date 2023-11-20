@@ -56,6 +56,24 @@ Hooks.once("init", async function () {
       name: "Barrier",
       icon: "systems/fabulaultima/images/Barrier.webp",
     },
+		{
+      "statuses": ["beserk"],
+			id: 'beserk',
+			name: 'Beserk',
+      icon: "systems/fabulaultima/images/Beserk.webp",
+		},
+		{
+      "statuses": ["blinded"],
+			id: 'blinded',
+			name: 'Blinded',
+      icon: "systems/fabulaultima/images/Blinded.webp",
+		},
+		{
+      "statuses": ["death"],
+			id: 'death',
+			name: 'Death',
+      icon: "systems/fabulaultima/images/Death.webp",
+		},
     {
       "statuses": ["dazed"],
       id: "dazed",
@@ -64,6 +82,14 @@ Hooks.once("init", async function () {
       stats: ["ins"],
       mod: -2,
     },
+    {
+      "statuses": ["dex-down"],
+			id: 'dex-down',
+			name: 'DEX Down',
+      icon: "systems/fabulaultima/images/DexDown.webp",
+			stats: ['dex'],
+			mod: -2,
+		},
     {
       "statuses": ["dex-up"],
       id: "dex-up",
@@ -81,6 +107,14 @@ Hooks.once("init", async function () {
       mod: -2,
     },
     {
+			"statuses": ["ins-down"],
+      id: "ins-down",
+			name: 'INS Down',
+      icon: "systems/fabulaultima/images/InsDown.webp",
+			stats: ['ins'],
+			mod: -2,
+		},
+    {
       "statuses": ["ins-up"],
       id: "ins-up",
       name: "INS Up",
@@ -95,6 +129,14 @@ Hooks.once("init", async function () {
       icon: "systems/fabulaultima/images/KO.webp",
     },
     {
+      "statuses": ["mig-down"],
+			id: 'mig-down',
+			name: 'MIG Down',
+      icon: "systems/fabulaultima/images/MigDown.webp",
+			stats: ['mig'],
+			mod: -2,
+		},
+    {
       "statuses": ["mig-up"],
       id: "mig-up",
       name: "MIG Up",
@@ -103,6 +145,18 @@ Hooks.once("init", async function () {
       mod: 2,
     },
     {
+      "statuses": ["reflect"],
+			id: 'reflect',
+			name: 'Reflect',
+      icon: "systems/fabulaultima/images/Reflect.webp",
+		},
+    {
+      "statuses": ["regen"],
+			id: 'regen',
+			name: 'Regen',
+      icon: "systems/fabulaultima/images/Regen.webp",
+		},
+    {
       "statuses": ["shaken"],
       id: "shaken",
       name: "Shaken",
@@ -110,6 +164,12 @@ Hooks.once("init", async function () {
       stats: ["wlp"],
       mod: -2,
     },
+    {
+      "statuses": ["sleep"],
+			id: 'sleep',
+			name: 'Sleep',
+      icon: "systems/fabulaultima/images/Sleep.webp",
+		},
     {
       "statuses": ["slow"],
       id: "slow",
@@ -134,6 +194,14 @@ Hooks.once("init", async function () {
       stats: ["mig"],
       mod: -2,
     },
+    {
+      "statuses": ["wlp-down"],
+			id: 'wlp-down',
+			name: 'WLP Down',
+			icon: 'systems/fabulaultima/images/WlpDown.webp',
+			stats: ['wlp'],
+			mod: -2,
+		},
     {
       "statuses": ["wlp-up"],
       id: "wlp-up",
