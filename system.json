@@ -2,10 +2,10 @@
   "id": "fabulaultima",
   "title": "Fabula Ultima",
   "description": "The Fabula Ultima system for FoundryVTT!",
-  "version": "0.1.0",
+  "version": "#{VERSION}#",
   "compatibility": {
     "minimum": 10,
-    "verified": "10.303",
+    "verified": "10.312",
     "maximum": 10
   },
   "authors": [
@@ -28,9 +28,9 @@
   "gridUnits": "ft",
   "primaryTokenAttribute": "hp",
   "secondaryTokenAttribute": "mp",
-  "url": "https://github.com/spyrella/fabulaultima-legacy",
-  "manifest": "https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/system.json",
-  "download": "https://github.com/spyrella/fabulaultima-legacy/releases/download/V10/fabulaultima-v10-0.1.0.zip",
+	"url": "#{URL}#",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#",
   "license": "LICENSE.txt",
   "changelog": "CHANGELOG.md",
   "socket": true,
