@@ -166,7 +166,7 @@ export class FabulaUltimaActor extends Actor {
 
     // Calculate new attribute values with the applied modifiers.
     for (let [key, attr] of Object.entries(systemData.attributes)) {
-      let newVal = attr.base + statMods[key]
+			let newVal = attr.base + statMods[key] + attr.bonus;
       if (newVal > 12) {
         newVal = 12
       }
